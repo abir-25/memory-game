@@ -1,6 +1,15 @@
-.score-section{
+body{
+    font-family: 'Otomanopee One', sans-serif;
+}
+.score-section, .footer-section{
     margin: 20px;
     text-align: center;
+}
+.score-section h2{
+    display: inline;
+    margin:50px;
+    font-size: 30px;
+    border-bottom: 2px solid;
 }
 .grid{
     display: flex;
@@ -13,12 +22,48 @@
 .grid img{
     padding: 1px;
 }
-
+.footer-section {
+    height: 60px;
+}
+.footer-section h2{
+    font-size: 40px;
+    color: #FF7070;
+}
+.button-section{    
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}   
+button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(78,237,24);
+    background: linear-gradient(90deg, rgba(78,237,24,0.5270483193277311) 4%, rgba(222,192,15,0.8071603641456583) 35%);
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 800;
+    font-family: 'Otomanopee One', sans-serif;
+}
+button:hover svg{
+    transform: rotate(-180deg);
+    transition: transform 1s ease-in-out;
+} 
+svg{
+    height: 20px;
+    transition: 1s ease-in-out;
+    font-weight: 800;
+    margin-right: 5px;
+}
 @media screen and (max-width:688px) {
     .grid{
         width: 100%;
         margin:50px auto;
-        height: 280px;
+        height: 260px;
     }
     .grid img{
         width: 24%;

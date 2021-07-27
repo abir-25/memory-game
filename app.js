@@ -68,14 +68,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ]
 
+    const cardRightArray = [
+        {
+            name: 'right',
+            img: 'images/right.jpg'
+        }
+    ]
+
     cardArray.sort(() => 0.5 - Math.random())
 
     // Create Board
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
+    const congratsDisplay = document.querySelector('#congrats')
+    const moveDisplay = document.querySelector('#move')
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
+    var count = 0;
 
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
@@ -93,28 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check for Matches
 
     function CheckForMatch() {
+        count++;
         var cards = document.querySelectorAll('img')
         const OptionOneId = cardsChosenId[0]
         const OptionOTwoId = cardsChosenId[1]
+        moveDisplay.textContent = count;
 
         if (cardsChosen[0] === cardsChosen[1]) {
-            alert('You Found a Match')
-            cards[OptionOneId].setAttribute('src', 'images/white.jpg')
-            cards[OptionOTwoId].setAttribute('src', 'images/white.jpg')
+            // alert('You Found a Match')
+            cards[OptionOneId].setAttribute('src', 'images/right.jpg')
+            cards[OptionOTwoId].setAttribute('src', 'images/right.jpg')
             cardsWon.push(cardsChosen)
         }
         else {
-            alert('Sorry Try Again')
+            // alert('Sorry Try Again')
             cards[OptionOneId].setAttribute('src', 'images/img-' + OptionOneId + '.jpg')
             cards[OptionOTwoId].setAttribute('src', 'images/img-' + OptionOTwoId + '.jpg')
-             
+
         }
         cardsChosen = []
         cardsChosenId = []
 
         resultDisplay.textContent = cardsWon.length
         if (cardsWon.length === cardArray.length / 2) {
-            resultDisplay.textContent = 'Congratulations! You Found them all'
+            congratsDisplay.textContent = 'Congratulations! You Found them all'
         }
     }
 
@@ -129,4 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(CheckForMatch, 500)
         }
     }
+
 })
+
+function refreshPage() {
+    window.location.reload();
+}
