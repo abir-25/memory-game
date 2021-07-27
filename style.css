@@ -1,0 +1,26 @@
+.score-section{
+    margin: 20px;
+    text-align: center;
+}
+.grid{
+    display: flex;
+    flex-wrap: wrap; 
+    height: 372px;
+    width: 616px;
+    margin: 50px auto;
+    justify-content: center;
+}
+.grid img{
+    padding: 1px;
+}
+
+@media screen and (max-width:688px) {
+    .grid{
+        width: 100%;
+        margin:50px auto;
+        height: 280px;
+    }
+    .grid img{
+        width: 24%;
+    }
+}
